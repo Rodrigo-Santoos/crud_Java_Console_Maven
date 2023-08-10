@@ -1,0 +1,8 @@
+create database agenda
+
+CREATE TABLE contato(
+	id int AUTO_INCREMENT PRIMARY KEY,
+	nome varchar(70) NOT NULL,
+	idade int NOT NULL,
+	dataCadastro date
+)

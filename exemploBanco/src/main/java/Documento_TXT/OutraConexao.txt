@@ -1,0 +1,15 @@
+        try {
+            Class.forName("com.mysql.jdbc.Driver"); //caminho até a classe de Driver do banco
+            Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost/banco", "root", "root"); //conectando com o banco
+            ResultSet rsCliente = conexao.createStatement().executeQuery("SELECT * FROM CLIENTE"); // aqui retorna as informacoes com a consulta
+
+            while(rsCliente.next()){
+                System.out.println("Nome: " + rsCliente.getString("Nome"));
+            }
+
+        } catch (ClassNotFoundException e) {
+            System.out.println("Driver do Banco de Dados nao localizado.");
+
+        } catch (SQLException sq){
+            System.out.println("Ocorreu um erro ao acessar o banco: " + sq.getMessage());
+        }
